@@ -3,6 +3,8 @@ const naipe_controller = require("./controllers/naipe.js");
 const app = express();
 const port = 3000;
 
+app.use(express.json());
+
 app.post("/naipe", (req, res) => {
   const naipe = req.body;
   const code = naipe_controller.store(naipe);
@@ -31,5 +33,5 @@ app.delete("/naipe/:id", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log("Gerenciador de baralho executando");
+  console.log("Gerenciador de baralho executando na porta" + port);
 });
